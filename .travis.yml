@@ -28,3 +28,4 @@ deploy:
   script: .build_scripts/deploy.sh
   on:
     branch: ${DEPLOY_BRANCH}
+
