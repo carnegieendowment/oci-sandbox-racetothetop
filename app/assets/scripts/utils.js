@@ -635,7 +635,7 @@ var utils = {
   // Get the current PRELIM model
   getPRELIMModel: function (refinery, lpg) {
     var metadata = Oci.data.metadata;
-    var gi = this.trimMetadataArray(metadata.gwp.split(',')), gwp);
+    var gi = this.trimMetadataArray(metadata.gwp.split(',')), gwp;
     var ri = this.trimMetadataArray(metadata.refinery.split(',')).indexOf(refinery);
     var li = Number(lpg);
     // Generate model string
