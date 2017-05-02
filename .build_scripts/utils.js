@@ -50,7 +50,7 @@ var utils = {
         for (var i = 0; i < data.metadata.solarSteam.split(',').length; i++) {
           for (var j = 0; j < data.metadata.water.split(',').length; j++) {
             for (var k = 0; k < data.metadata.flare.split(',').length; k++) {
-              var opgee = data.opgee['run' + i + j + k][key];
+              var opgee = data.opgee['run' + g + i + j + k][key];
               var extraction = +opgee['Net lifecycle emissions'];
 
               if (!opgeeExtent || (extraction * minMaxMultiplier > opgeeExtent * minMaxMultiplier)) {
