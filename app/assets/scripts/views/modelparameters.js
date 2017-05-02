@@ -69,6 +69,8 @@ var ModelParameters = Backbone.View.extend({
         this.waterSlider.set(waterValue);
         var flaringValue = parseFloat(Oci.data.metadata.flare.split(',')[flaring]) * 100;
         this.flaringSlider.set(flaringValue);
+        var gwp = params.opgee[6];
+        $('#toggle-gwp').attr('checked', Boolean(gwp));
       } catch (e) {
         console.warn('bad input parameter', e);
       }
@@ -79,8 +81,10 @@ var ModelParameters = Backbone.View.extend({
         // We know the format of the param 'run##'
         var refinery = params.prelim[3];
         var lpg = params.prelim[4];
+        var gwp = params.opgee[5];
         $('#dropdown-refinery').prop('selectedIndex', refinery);
         $('#toggle-lpg').attr('checked', Boolean(lpg));
+        $('#toggle-gwp').attr('checked', Boolean(gwp));
       } catch (e) {
         console.warn('bad input parameter', e);
       }
@@ -104,6 +108,8 @@ var ModelParameters = Backbone.View.extend({
     $('.value.petcoke span').html(petcoke + '%');
     var lpg = $('#toggle-lpg').is(':checked') ? 'Sell' : 'Use';
     $('.value.lpg span').html(lpg);
+    var gwp = $('#toggle-gwp').is(':checked') ? '20' : '100';
+    $('.value.lpg span').html(gwp);
     var refinery = $('#dropdown-refinery').val();
     switch (refinery) {
       case '0 = Default':
