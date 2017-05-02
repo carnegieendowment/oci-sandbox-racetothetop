@@ -46,25 +46,28 @@ var utils = {
     for (var key in oils) {
       var opgeeExtent = null;
       var transport = +oils[key]['Transport Emissions'];  // Transport total
-      for (var i = 0; i < data.metadata.solarSteam.split(',').length; i++) {
-        for (var j = 0; j < data.metadata.water.split(',').length; j++) {
-          for (var k = 0; k < data.metadata.flare.split(',').length; k++) {
-            var opgee = data.opgee['run' + i + j + k][key];
-            var extraction = +opgee['Net lifecycle emissions'];
+      for (var g = 0; g < data.metadata.gwp.split(',').length; g++) {
+        for (var i = 0; i < data.metadata.solarSteam.split(',').length; i++) {
+          for (var j = 0; j < data.metadata.water.split(',').length; j++) {
+            for (var k = 0; k < data.metadata.flare.split(',').length; k++) {
+              var opgee = data.opgee['run' + i + j + k][key];
+              var extraction = +opgee['Net lifecycle emissions'];
 
-            if (!opgeeExtent || (extraction * minMaxMultiplier > opgeeExtent * minMaxMultiplier)) {
-              opgeeExtent = extraction;
+              if (!opgeeExtent || (extraction * minMaxMultiplier > opgeeExtent * minMaxMultiplier)) {
+                opgeeExtent = extraction;
+              }
             }
           }
         }
       }
-      for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
-        // this for loop is for LPG runs
-        for (var m = 0; m < 2; m++) {
-          var prelim = data.prelim['run' + l + m][key];
-          // we might not have a prelim run for this oil (certain oils don't
-          // run through some refineries)
-          if (!prelim) break;
+      for (var g = 0; g < data.metadata.gwp.split(',').length; g++) {
+        for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
+          // this for loop is for LPG runs
+          for (var m = 0; m < 2; m++) {
+            var prelim = data.prelim['run' + g + l + m][key];
+            // we might not have a prelim run for this oil (certain oils don't
+            // run through some refineries)
+            if (!prelim) break;
 
           [0, 0.5, 1].forEach(function (showCoke) {
             var refining = +utils.getRefiningTotal(prelim);
@@ -95,6 +98,7 @@ var utils = {
         }
       }
     }
+  }
 
     // store for later
     if (!Oci.data.globalExtents[ratio]) {
