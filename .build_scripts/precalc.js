@@ -16,22 +16,27 @@ var metadata = Oci.data.metadata
 var si = utils.trimMetadataArray(metadata.solarSteam.split(','));
 var wi = utils.trimMetadataArray(metadata.water.split(','));
 var fi = utils.trimMetadataArray(metadata.flare.split(','));
+var gi = utils.trimMetadataArray(metadata.gwp.split(','));
 var ri = utils.trimMetadataArray(metadata.refinery.split(','));
 var li = [1, 0];
 
-si.forEach(function (_, s) {
-  wi.forEach(function (_, w) {
-    fi.forEach(function (_, f) {
-      var temp = JSON.parse(fs.readFileSync('app/assets/data/opgee/opgee_run' + s + w + f + '.json'));
-      Oci.data.opgee['run' + s + w + f] = temp;
+gi.forEach(function (_, g) {
+  si.forEach(function (_, s) {
+      wi.forEach(function (_, w) {
+      fi.forEach(function (_, f) {
+        var temp = JSON.parse(fs.readFileSync('app/assets/data/opgee/opgee_run' + g + s + w + f + '.json'));
+        Oci.data.opgee['run' + g + s + w + f] = temp;
+      });
     });
   });
 });
 
-ri.forEach(function (_, r) {
-  li.forEach(function (_, l) {
-    var temp = JSON.parse(fs.readFileSync('app/assets/data/prelim/prelim_run' + r + l + '.json'));
-    Oci.data.prelim['run' + r + l] = temp;
+gi.forEach(function (_, g) {
+  ri.forEach(function (_, r) {
+    li.forEach(function (_, l) {
+      var temp = JSON.parse(fs.readFileSync('app/assets/data/prelim/prelim_run' + g+ r + l + '.json'));
+      Oci.data.prelim['run' + g+ r + l] = temp;
+    });
   });
 });
 
