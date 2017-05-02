@@ -101,21 +101,21 @@ var utils = {
             components.midstream = refining;
             components.downstream = combustion + transport;
             if (component) {
-            total = components[component];
-          } else {
-            total = _.reduce(components, function (a, b) { return a + b; }, 0);
-          }
+              total = components[component];
+            } else {
+              total = _.reduce(components, function (a, b) { return a + b; }, 0);
+            }
 
               // Handle ratio
-        total = utils.getValueForRatio(total, ratio, prelim, showCoke, data.info[key], m);
+            total = utils.getValueForRatio(total, ratio, prelim, showCoke, data.info[key], m);
 
               // Check which is bigger (or smaller)
-        if (!opgeeExtent || (extraction * minMaxMultiplier > opgeeExtent * minMaxMultiplier)) {
-                  opgeeExtent = extraction;
-                }
+            if (!opgeeExtent || (extraction * minMaxMultiplier > opgeeExtent * minMaxMultiplier)) {
+          opgeeExtent = extraction;
+        }
             if (!extent || (total * minMaxMultiplier > extent * minMaxMultiplier)) {
-                  extent = total;
-                }
+              extent = total;
+            }
           });
         }
       }
