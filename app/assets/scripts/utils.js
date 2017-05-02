@@ -111,8 +111,8 @@ var utils = {
 
               // Check which is bigger (or smaller)
             if (!opgeeExtent || (extraction * minMaxMultiplier > opgeeExtent * minMaxMultiplier)) {
-          opgeeExtent = extraction;
-        }
+              opgeeExtent = extraction;
+            }
             if (!extent || (total * minMaxMultiplier > extent * minMaxMultiplier)) {
               extent = total;
             }
