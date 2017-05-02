@@ -73,12 +73,11 @@ var utils = {
           }
         }
       }
-        for(var g=0; g < data.metadata.gwp.split(',').length; g++) {
           for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
           // this for loop is for LPG runs
           for (var m = 0; m < 2; m++) {
             // if we don't have the necessary data, load it
-            var prelimRun = 'run' + g + l + m;
+              var prelimRun = 'run' + g + l + m;
 
             if (!Oci.Collections.prelim.get(prelimRun)) {
               var prelimModel = new PrelimModel({ id: prelimRun });
@@ -120,8 +119,7 @@ var utils = {
             });
           }
         }
-      }
-    }
+        }
 
     // store for later
     if (!Oci.data.globalExtents[ratio]) {
@@ -633,7 +631,7 @@ var utils = {
   },
 
   // Get the current PRELIM model
-  getPRELIMModel: function (refinery, lpg) {
+  getPRELIMModel: function (gwp, refinery, lpg) {
     var metadata = Oci.data.metadata;
     var gi = this.trimMetadataArray(metadata.gwp.split(',')), gwp;
     var ri = this.trimMetadataArray(metadata.refinery.split(',')).indexOf(refinery);
