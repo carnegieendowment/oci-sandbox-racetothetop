@@ -75,23 +75,23 @@ var utils = {
       }
       for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
           // this for loop is for LPG runs
-            for (var m = 0; m < 2; m++) {
+        for (var m = 0; m < 2; m++) {
             // if we don't have the necessary data, load it
-            var prelimRun = 'run' + g + l + m;
+              var prelimRun = 'run' + g + l + m;
 
-            if (!Oci.Collections.prelim.get(prelimRun)) {
+              if (!Oci.Collections.prelim.get(prelimRun)) {
               var prelimModel = new PrelimModel({ id: prelimRun });
               prelimModel.fetch({ async: false, success: function (data) {
                 Oci.Collections.prelim.add(data);
               }});
             }
 
-            var prelim = Oci.Collections.prelim.get(prelimRun).toJSON()[key];
+              var prelim = Oci.Collections.prelim.get(prelimRun).toJSON()[key];
             // we might not have a prelim run for this oil (certain oils don't
             // run through some refineries)
-            if (!prelim) break;
+              if (!prelim) break;
 
-            [0, 0.5, 1].forEach(function (showCoke) {
+              [0, 0.5, 1].forEach(function (showCoke) {
               var refining = +utils.getRefiningTotal(prelim);
               var combustion = +utils.getCombustionTotal(prelim, showCoke, m);
 
@@ -117,8 +117,8 @@ var utils = {
                 extent = total;
               }
             });
-          }
-          }
+            }
+      }
     }
 
     // store for later
@@ -633,6 +633,7 @@ var utils = {
   // Get the current PRELIM model
   getPRELIMModel: function (gwp, refinery, lpg) {
     var metadata = Oci.data.metadata;
+    var gi = this.indexInArray(this.trimMetadataArray(metadata.gwp.split(',')), gwp);
     var ri = this.trimMetadataArray(metadata.refinery.split(',')).indexOf(refinery);
     var li = Number(lpg);
     // Generate model string
