@@ -76,9 +76,9 @@ var utils = {
       for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
           // this for loop is for LPG runs
         for (var m = 0; m < 2; m++) {
-        for (var g = 0; g < 2; g++) {
+            for (var g = 0; g < 2; g++) {
             // if we don't have the necessary data, load it
-          var prelimRun = 'run' + g + l + m;
+                var prelimRun = 'run' + g + l + m;
 
           if (!Oci.Collections.prelim.get(prelimRun)) {
             var prelimModel = new PrelimModel({ id: prelimRun });
@@ -121,7 +121,7 @@ var utils = {
         }
       }
     }
-
+  }
     // store for later
     if (!Oci.data.globalExtents[ratio]) {
       Oci.data.globalExtents[ratio] = {};
@@ -134,7 +134,7 @@ var utils = {
     }
     Oci.data.globalExtents[ratio][oilLookup][componentLookup][minMax] = extent;
     return extent;
-  }
+  },
 
   // Generate social sharing links
   generateSocialLinks: function (pageURL) {
