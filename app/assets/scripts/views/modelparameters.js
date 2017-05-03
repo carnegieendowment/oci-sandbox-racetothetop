@@ -18,6 +18,7 @@ var waterValues;
 var waterLabels;
 var cokeValues;
 var cokeLabels;
+var gwpValues;
 
 var ModelParameters = Backbone.View.extend({
 
@@ -71,7 +72,7 @@ var ModelParameters = Backbone.View.extend({
         this.waterSlider.set(waterValue);
         var flaringValue = parseFloat(Oci.data.metadata.flare.split(',')[flaring]) * 100;
         this.flaringSlider.set(flaringValue);
-        $('#toggle-gwp').attr('checked', Boolean(gwp));
+        var gwpValues = parseFloat(Oci.data.metadata.gwp.split(',')[gwp]);
       } catch (e) {
         console.warn('bad input parameter', e);
       }
