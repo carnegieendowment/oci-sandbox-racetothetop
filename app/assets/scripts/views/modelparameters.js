@@ -81,7 +81,7 @@ var ModelParameters = Backbone.View.extend({
         // We know the format of the param 'run##'
         var refinery = params.prelim[3];
         var lpg = params.prelim[4];
-        var gwp = params.opgee[5];
+        var gwp = params.prelim[5];
         $('#dropdown-refinery').prop('selectedIndex', refinery);
         $('#toggle-lpg').attr('checked', Boolean(lpg));
         $('#toggle-gwp').attr('checked', Boolean(gwp));
