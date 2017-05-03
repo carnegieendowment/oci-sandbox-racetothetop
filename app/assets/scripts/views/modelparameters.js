@@ -61,10 +61,10 @@ var ModelParameters = Backbone.View.extend({
     if (params.opgee) {
       try {
         // We know the format of the param 'run###'
-        var gwp = params.opgee[3];
-        var solarSteam = params.opgee[4];
-        var water = params.opgee[5];
-        var flaring = params.opgee[6];
+        var gwp = params.opgee[6];
+        var solarSteam = params.opgee[3];
+        var water = params.opgee[4];
+        var flaring = params.opgee[5];
         var solarSteamValue = parseFloat(Oci.data.metadata.solarSteam.split(',')[solarSteam]) * 100;
         this.solarSteamSlider.set(solarSteamValue);
         var waterValue = parseFloat(Oci.data.metadata.water.split(',')[water]) * 100;
