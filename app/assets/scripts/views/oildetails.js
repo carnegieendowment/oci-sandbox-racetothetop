@@ -254,7 +254,7 @@ var OilDetails = BaseView.extend({
     // Default model data
     var defaultModelData = {
       info: Oci.data.info,
-      opgee: Oci.Collections.opgee.get(utils.getOPGEEModel('0','0', '0', '0')).toJSON(),
+      opgee: Oci.Collections.opgee.get(utils.getOPGEEModel('0', '0', '0', '0')).toJSON(),
       prelim: Oci.Collections.prelim.get(utils.getPRELIMModel('0', '0 = Default', 1)).toJSON()
     };
 
