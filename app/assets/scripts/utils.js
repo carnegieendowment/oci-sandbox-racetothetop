@@ -76,6 +76,7 @@ var utils = {
       for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
           // this for loop is for LPG runs
         for (var m = 0; m < 2; m++) {
+        for (var g = 0; g < 2; g++) {
             // if we don't have the necessary data, load it
           var prelimRun = 'run' + g + l + m;
 
