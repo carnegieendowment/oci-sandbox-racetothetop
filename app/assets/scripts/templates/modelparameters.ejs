@@ -36,19 +36,19 @@
   </ul>
 </div>
 <div class="mp-edit">
-  <div class="param-control icon-solar-steam">
-    <div class="container-filter_title">
-      <strong class="param-title">Solar Steam</strong>
-      <span data-title-after="Select the fraction of solar-generated steam used for enhanced oil recovery." class="icon-information">?</span>
-    </div>
-    <div class="slider" id="slider-solar-steam"></div>
-  </div>
   <div class="param-control icon-flare">
     <div class="container-filter_title">
       <strong class="param-title">Flaring Intensity</strong>
       <span data-title-before="Select the share of natural gas wasted through combustion upstream." class="icon-information">?</span>
     </div>
     <div class="slider" id="slider-flaring"></div>
+  </div>
+  <div class="param-control icon-solar-steam">
+    <div class="container-filter_title">
+      <strong class="param-title">Solar Steam</strong>
+      <span data-title-after="Select the fraction of solar-generated steam used for enhanced oil recovery." class="icon-information">?</span>
+    </div>
+    <div class="slider" id="slider-solar-steam"></div>
   </div>
   <div class="param-control icon-water">
     <div class="container-filter_title">
@@ -77,6 +77,16 @@
       <option value="4 = Deep Conversion (Hydrotreating)">Deep Conversion: Hydrocracking</option>
     </select>
   </div>
+  <div class="param-control icon-gwp">
+     <div class="container-filter_title">
+      <strong class="param-title">Global Warming Potential</strong>
+      <span data-title-before="Select whether a 20 or 100 year Global Warming Potential is used to assess impact of non-CO2 emissions." class="icon-information">?</span>
+    </div>
+    <label class="switch gwp-override" for="toggle-gwp">
+      <input id="toggle-gwp" type="checkbox" checked />
+      <span class="switch-text">Global Warming Potential</span>
+      <span class="switch-ui"></span>
+    </label>
   <div class="param-control icon-lpg">
     <div class="container-filter_title">
       <strong class="param-title">Liquefied Petroleum Gas</strong>
@@ -85,16 +95,6 @@
     <label class="switch lpg-override" for="toggle-lpg">
       <input id="toggle-lpg" type="checkbox" checked />
       <span class="switch-text">Liquefied Petroleum Gas</span>
-      <span class="switch-ui"></span>
-    </label>
-   <div class="param-control icon-gwp">
-     <div class="container-filter_title">
-      <strong class="param-title">Global Warming Potential</strong>
-      <span data-title-before="Select whether a 20 or 100 year Global Warming Potential is used to assess impact of non-CO2 emissions." class="icon-information">?</span>
-    </div>
-    <label class="switch gwp-override" for="toggle-gwp">
-      <input id="toggle-gwp" type="checkbox" checked />
-      <span class="switch-text">Global Warming Potential</span>
       <span class="switch-ui"></span>
     </label>
   </div>
