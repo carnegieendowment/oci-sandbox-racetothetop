@@ -52,7 +52,7 @@ var ModelParameters = Backbone.View.extend({
       showCoke: (this.cokeSlider.get() / 100),
       refinery: $('#dropdown-refinery').val(),
       lpg: $('#toggle-lpg').is(':checked'),
-      gwp: $('#toggle-gwp').is('checked')
+      gwp: $('#toggle-gwp').is(':checked')
     };
   },
 
