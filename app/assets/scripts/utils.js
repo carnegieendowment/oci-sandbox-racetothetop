@@ -614,7 +614,7 @@ var utils = {
   // Get the current OPGEE model based on model parameters
   getOPGEEModel: function (gwp, solarSteam, water, flaring) {
     var metadata = Oci.data.metadata;
-    var gi = this.indexInArray(this.trimMetadataArray(metadata.gwp.split(',')), gwp);
+    var gi = Number(gwp);
     var si = this.indexInArray(this.trimMetadataArray(metadata.solarSteam.split(',')), solarSteam);
     var wi = this.indexInArray(this.trimMetadataArray(metadata.water.split(',')), water);
     var fi = this.indexInArray(this.trimMetadataArray(metadata.flare.split(',')), flaring);
@@ -622,8 +622,8 @@ var utils = {
     // Generate model string
     var model = 'run';
     // If we don't have a match, return default
-    if (gi === -1 || si === -1 || wi === -1 || fi === -1) {
-      model += '1000';
+    if (si === -1 || wi === -1 || fi === -1) {
+      model += ( gi + '000');
     } else {
       model += [gi, si, wi, fi].join('');
     }
@@ -633,14 +633,14 @@ var utils = {
   // Get the current PRELIM model
   getPRELIMModel: function (gwp, refinery, lpg) {
     var metadata = Oci.data.metadata;
-    var gi = this.indexInArray(this.trimMetadataArray(metadata.gwp.split(',')), gwp);
+    var gi = Number(gwp);
     var ri = this.trimMetadataArray(metadata.refinery.split(',')).indexOf(refinery);
     var li = Number(lpg);
     // Generate model string
     var model = 'run';
     // If we don't have a match, return default
-    if (gi === -1 || ri === -1) {
-      model += ('1' + '0' + li);
+    if (ri === -1) {
+      model += (gi + '0' + li);
     } else {
       model = model + gi + ri + li;
     }
