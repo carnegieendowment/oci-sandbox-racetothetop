@@ -19,7 +19,6 @@ var waterLabels;
 var cokeValues;
 var cokeLabels;
 
-
 var ModelParameters = Backbone.View.extend({
 
   template: template,
