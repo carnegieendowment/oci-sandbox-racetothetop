@@ -61,15 +61,17 @@ var ModelParameters = Backbone.View.extend({
     if (params.opgee) {
       try {
         // We know the format of the param 'run###'
-        var solarSteam = params.opgee[3];
-        var water = params.opgee[4];
-        var flaring = params.opgee[5];
+        var solarSteam = params.opgee[4];
+        var water = params.opgee[5];
+        var flaring = params.opgee[6];
+        var gwp = params.opgee[3]
         var solarSteamValue = parseFloat(Oci.data.metadata.solarSteam.split(',')[solarSteam]) * 100;
         this.solarSteamSlider.set(solarSteamValue);
         var waterValue = parseFloat(Oci.data.metadata.water.split(',')[water]) * 100;
         this.waterSlider.set(waterValue);
         var flaringValue = parseFloat(Oci.data.metadata.flare.split(',')[flaring]) * 100;
         this.flaringSlider.set(flaringValue);
+        $('#toggle-gwp').attr('checked', Boolean(gwp));
       } catch (e) {
         console.warn('bad input parameter', e);
       }
