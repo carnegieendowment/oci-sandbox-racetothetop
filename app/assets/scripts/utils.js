@@ -624,7 +624,7 @@ var utils = {
     if (si === -1 || wi === -1 || fi === -1) {
       model += (gi + '000');
     } else {
-      model += [gi, si, wi, fi].join('');
+      model = model + gi + si + wi + fi;
     }
     return model;
   },
