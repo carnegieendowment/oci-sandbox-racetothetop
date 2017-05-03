@@ -134,7 +134,7 @@ var utils = {
     }
     Oci.data.globalExtents[ratio][oilLookup][componentLookup][minMax] = extent;
     return extent;
-  },
+  }
 
   // Generate social sharing links
   generateSocialLinks: function (pageURL) {
