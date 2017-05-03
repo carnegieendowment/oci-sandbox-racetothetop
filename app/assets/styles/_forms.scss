@@ -286,7 +286,7 @@ input[type=radio] {
   }
   input:checked ~ .switch-ui:after { content: "Sell"; }
 }
-.switch.lpg-override {
+.switch.gwp-override {
   .switch-ui:after {
     content: "100";
     padding-right: 10px;
