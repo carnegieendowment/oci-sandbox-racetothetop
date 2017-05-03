@@ -109,7 +109,7 @@ var ModelParameters = Backbone.View.extend({
     var lpg = $('#toggle-lpg').is(':checked') ? 'Sell' : 'Use';
     $('.value.lpg span').html(lpg);
     var gwp = $('#toggle-gwp').is(':checked') ? '20' : '100';
-    $('.value.lpg span').html(gwp);
+    $('.value.gwp span').html(gwp);
     var refinery = $('#dropdown-refinery').val();
     switch (refinery) {
       case '0 = Default':
