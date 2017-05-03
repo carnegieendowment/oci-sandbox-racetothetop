@@ -120,7 +120,6 @@ var utils = {
         }
       }
     }
-  }
     // store for later
     if (!Oci.data.globalExtents[ratio]) {
       Oci.data.globalExtents[ratio] = {};
