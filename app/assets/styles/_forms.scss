@@ -286,6 +286,13 @@ input[type=radio] {
   }
   input:checked ~ .switch-ui:after { content: "Sell"; }
 }
+.switch.lpg-override {
+  .switch-ui:after {
+    content: "100";
+    padding-right: 10px;
+  }
+  input:checked ~ .switch-ui:after { content: "20"; }
+}
 .switch input:checked ~ .switch-ui {
   background: tint($base-color, 20%);
 }
