@@ -51,7 +51,7 @@ var utils = {
     for (var key in oils) {
       var opgeeExtent = null;
       var transport = +oils[key]['Transport Emissions'];  // Transport total
-      for (var g = 0; g < data.metadata.solarSteam.split(',').length; g++) {
+      for (var g = 0; g < data.metadata.gwp.split(',').length; g++) {
         for (var i = 0; i < data.metadata.solarSteam.split(',').length; i++) {
           for (var j = 0; j < data.metadata.water.split(',').length; j++) {
             for (var k = 0; k < data.metadata.flare.split(',').length; k++) {
