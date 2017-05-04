@@ -78,46 +78,46 @@ var utils = {
         for (var m = 0; m < 2; m++) {
           for (var h = 0; h < 2; h++) {
             // if we don't have the necessary data, load it
-          var prelimRun = 'run' + h + l + m;
+            var prelimRun = 'run' + h + l + m;
 
-          if (!Oci.Collections.prelim.get(prelimRun)) {
-            var prelimModel = new PrelimModel({ id: prelimRun });
-            prelimModel.fetch({ async: false, success: function (data) {
-              Oci.Collections.prelim.add(data);
-            }});
-          }
+            if (!Oci.Collections.prelim.get(prelimRun)) {
+              var prelimModel = new PrelimModel({ id: prelimRun });
+              prelimModel.fetch({ async: false, success: function (data) {
+                Oci.Collections.prelim.add(data);
+              }});
+            }
 
-          var prelim = Oci.Collections.prelim.get(prelimRun).toJSON()[key];
+            var prelim = Oci.Collections.prelim.get(prelimRun).toJSON()[key];
             // we might not have a prelim run for this oil (certain oils don't
             // run through some refineries)
-          if (!prelim) break;
+            if (!prelim) break;
 
-          [0, 0.5, 1].forEach(function (showCoke) {
-            var refining = +utils.getRefiningTotal(prelim);
-            var combustion = +utils.getCombustionTotal(prelim, showCoke, m);
+            [0, 0.5, 1].forEach(function (showCoke) {
+              var refining = +utils.getRefiningTotal(prelim);
+              var combustion = +utils.getCombustionTotal(prelim, showCoke, m);
 
               // Sum it up! (conditionally based on whether component is selected)
-            var total;
-            components.upstream = opgeeExtent;
-            components.midstream = refining;
-            components.downstream = combustion + transport;
-            if (component) {
-              total = components[component];
-            } else {
-              total = _.reduce(components, function (a, b) { return a + b; }, 0);
-            }
+              var total;
+              components.upstream = opgeeExtent;
+              components.midstream = refining;
+              components.downstream = combustion + transport;
+              if (component) {
+                total = components[component];
+              } else {
+                total = _.reduce(components, function (a, b) { return a + b; }, 0);
+              }
 
               // Handle ratio
-            total = utils.getValueForRatio(total, ratio, prelim, showCoke, data.info[key], m);
+              total = utils.getValueForRatio(total, ratio, prelim, showCoke, data.info[key], m);
 
               // Check which is bigger (or smaller)
-            if (!opgeeExtent || (extraction * minMaxMultiplier > opgeeExtent * minMaxMultiplier)) {
-              opgeeExtent = extraction;
-            }
-            if (!extent || (total * minMaxMultiplier > extent * minMaxMultiplier)) {
-              extent = total;
-            }
-          });
+              if (!opgeeExtent || (extraction * minMaxMultiplier > opgeeExtent * minMaxMultiplier)) {
+                opgeeExtent = extraction;
+              }
+              if (!extent || (total * minMaxMultiplier > extent * minMaxMultiplier)) {
+                extent = total;
+              }
+            });
           }
         }
       }
