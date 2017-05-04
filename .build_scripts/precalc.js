@@ -16,7 +16,7 @@ var metadata = Oci.data.metadata
 var si = utils.trimMetadataArray(metadata.solarSteam.split(','));
 var wi = utils.trimMetadataArray(metadata.water.split(','));
 var fi = utils.trimMetadataArray(metadata.flare.split(','));
-var gi = [20, 100];
+var gi = utils.trimMetadataArray(metadata.gwp.split(','));
 var ri = utils.trimMetadataArray(metadata.refinery.split(','));
 var li = [1, 0];
 
