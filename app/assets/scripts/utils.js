@@ -622,7 +622,7 @@ var utils = {
     var model = 'run';
     // If we don't have a match, return default
     if (gi === -1 || si === -1 || wi === -1 || fi === -1) {
-      model += '0000'
+      model += '0000';
     } else {
       model += [gi, si, wi, fi].join('');
     }
