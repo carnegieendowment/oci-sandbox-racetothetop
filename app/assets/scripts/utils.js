@@ -76,8 +76,9 @@ var utils = {
       for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
           // this for loop is for LPG runs
         for (var m = 0; m < 2; m++) {
+        for (var h = 0; h < 2; h++) {
             // if we don't have the necessary data, load it
-          var prelimRun = 'run' + g + l + m;
+          var prelimRun = 'run' + h + l + m;
 
           if (!Oci.Collections.prelim.get(prelimRun)) {
             var prelimModel = new PrelimModel({ id: prelimRun });
@@ -632,16 +633,16 @@ var utils = {
   // Get the current PRELIM model
   getPRELIMModel: function (gwp, refinery, lpg) {
     var metadata = Oci.data.metadata;
-    var gi = Number(gwp);
+    var hi = Number(gwp);
     var ri = this.trimMetadataArray(metadata.refinery.split(',')).indexOf(refinery);
     var li = Number(lpg);
     // Generate model string
     var model = 'run';
     // If we don't have a match, return default
     if (ri === -1) {
-      model += (gi + '0' + li);
+      model += (hi + '0' + li);
     } else {
-      model = model + gi + ri + li;
+      model = model + hi + ri + li;
     }
     return model;
   },
