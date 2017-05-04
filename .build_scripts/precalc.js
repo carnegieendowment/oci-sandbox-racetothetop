@@ -31,12 +31,10 @@ gi.forEach(function (_, g) {
   });
 });
 
-gi.forEach(function (_, g) {
-  ri.forEach(function (_, r) {
-    li.forEach(function (_, l) {
-      var temp = JSON.parse(fs.readFileSync('app/assets/data/prelim/prelim_run' + g + r + l + '.json'));
-      Oci.data.prelim['run' + g + r + l] = temp;
-    });
+ri.forEach(function (_, r) {
+  li.forEach(function (_, l) {
+    var temp = JSON.parse(fs.readFileSync('app/assets/data/prelim/prelim_run' + r + l + '.json'));
+    Oci.data.prelim['run' + g + r + l] = temp;
   });
 });
 
