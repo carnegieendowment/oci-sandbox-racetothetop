@@ -16,7 +16,7 @@ var metadata = Oci.data.metadata
 var si = utils.trimMetadataArray(metadata.solarSteam.split(','));
 var wi = utils.trimMetadataArray(metadata.water.split(','));
 var fi = utils.trimMetadataArray(metadata.flare.split(','));
-var gi = [1, 0];
+var gi = [20, 100];
 var ri = utils.trimMetadataArray(metadata.refinery.split(','));
 var li = [1, 0];
 
@@ -34,7 +34,7 @@ gi.forEach(function (_, g) {
 gi.forEach(function (_, g) {
   ri.forEach(function (_, r) {
     li.forEach(function (_, l) {
-      var temp = JSON.parse(fs.readFileSync('app/assets/data/prelim/prelim_run' + g+ r + l + '.json'));
+      var temp = JSON.parse(fs.readFileSync('app/assets/data/prelim/prelim_run' + g + r + l + '.json'));
       Oci.data.prelim['run' + g + r + l] = temp;
     });
   });
