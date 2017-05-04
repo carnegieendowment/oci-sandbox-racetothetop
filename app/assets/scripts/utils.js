@@ -76,7 +76,7 @@ var utils = {
       for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
           // this for loop is for LPG runs
         for (var m = 0; m < 2; m++) {
-        for (var h = 0; h < 2; h++) {
+          for (var h = 0; h < 2; h++) {
             // if we don't have the necessary data, load it
           var prelimRun = 'run' + h + l + m;
 
@@ -118,10 +118,10 @@ var utils = {
               extent = total;
             }
           });
+          }
         }
       }
     }
-  }
     // store for later
     if (!Oci.data.globalExtents[ratio]) {
       Oci.data.globalExtents[ratio] = {};
