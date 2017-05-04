@@ -75,7 +75,6 @@ var ModelParameters = Backbone.View.extend({
         this.flaringSlider.set(flaringValue);
         var gwpValue = parseFloat(Oci.data.metadata.water.split(',')[gwp]) * 100;
         this.gwpSlider.set(gwpValue);
-
       } catch (e) {
         console.warn('bad input parameter', e);
       }
