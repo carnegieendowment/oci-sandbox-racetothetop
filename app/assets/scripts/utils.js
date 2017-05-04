@@ -630,18 +630,17 @@ var utils = {
   },
 
   // Get the current PRELIM model
-  getPRELIMModel: function (gwp, refinery, lpg) {
+  getPRELIMModel: function (refinery, lpg) {
     var metadata = Oci.data.metadata;
-    var gi = this.indexInArray(this.trimMetadataArray(metadata.gwp.split(',')), gwp);
     var ri = this.trimMetadataArray(metadata.refinery.split(',')).indexOf(refinery);
     var li = Number(lpg);
     // Generate model string
     var model = 'run';
     // If we don't have a match, return default
     if (ri === -1) {
-      model += ('00' + li);
+      model += ('0' + li);
     } else {
-      model = model + gi + ri + li;
+      model = model + ri + li;
     }
     return model;
   },
