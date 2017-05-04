@@ -54,7 +54,7 @@ var ModelParameters = Backbone.View.extend({
       showCoke: (this.cokeSlider.get() / 100),
       refinery: $('#dropdown-refinery').val(),
       lpg: $('#toggle-lpg').is(':checked'),
-      gwp: (this.cokeSlider.get()),
+      gwp: (this.cokeSlider.get())
     };
   },
 
@@ -75,7 +75,7 @@ var ModelParameters = Backbone.View.extend({
         this.flaringSlider.set(flaringValue);
         var gwpValue = parseFloat(Oci.data.metadata.water.split(',')[gwp]) * 100;
         this.gwpSlider.set(gwpValue);
-        
+
       } catch (e) {
         console.warn('bad input parameter', e);
       }
@@ -112,8 +112,6 @@ var ModelParameters = Backbone.View.extend({
     $('.value.petcoke span').html(petcoke + '%');
     var lpg = $('#toggle-lpg').is(':checked') ? 'Sell' : 'Use';
     $('.value.lpg span').html(lpg);
-    var gwp = $('#toggle-gwp').is(':checked') ? '20' : '100';
-    $('.value.gwp span').html(gwp);
     var gwp = parseInt(this.gwpSlider.get());
     $('.value.gwp span').html(gwp);
     var refinery = $('#dropdown-refinery').val();
@@ -197,7 +195,7 @@ var ModelParameters = Backbone.View.extend({
       self.trigger('sliderUpdate', value);
     });
 
- this.gwpSlider = noUiSlider.create($('#slider-gwp')[0], {
+    this.gwpSlider = noUiSlider.create($('#slider-gwp')[0], {
       start: 100,
       connect: 'lower',
       snap: true,
@@ -207,7 +205,6 @@ var ModelParameters = Backbone.View.extend({
         values: gwpValues,
         density: 10,
         format: wNumb({
-
         }),
         stepped: true
       }
