@@ -77,7 +77,7 @@ var utils = {
           // this for loop is for LPG runs
         for (var m = 0; m < 2; m++) {
             // if we don't have the necessary data, load it
-          var prelimRun = 'run' + g + l + m;
+          var prelimRun = 'run' + l + m;
 
           if (!Oci.Collections.prelim.get(prelimRun)) {
             var prelimModel = new PrelimModel({ id: prelimRun });
