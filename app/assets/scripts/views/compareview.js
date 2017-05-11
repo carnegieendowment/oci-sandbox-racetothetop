@@ -21,6 +21,7 @@ var CompareView = BaseView.extend({
 
   events: {
     'change #toggle-lpg': 'handleParametersChange',
+    'change #toggle-gwp': 'handleParametersChange',
     'change .config-dropdown': 'handleDropdown',
     'click #oil-details-share': 'handleShare',
     'click .carosel-arrow': 'handleCarosel',
