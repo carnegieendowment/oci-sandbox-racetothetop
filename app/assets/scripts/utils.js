@@ -74,6 +74,7 @@ var utils = {
         }
       }
       for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
+      for (var g = 0; g < data.metadata.gwp.split(',').length; g++) {
           // this for loop is for LPG runs
         for (var m = 0; m < 2; m++) {
             // if we don't have the necessary data, load it
