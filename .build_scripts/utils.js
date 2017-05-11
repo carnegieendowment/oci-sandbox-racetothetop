@@ -64,7 +64,7 @@ var utils = {
         for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
           // this for loop is for LPG runs
           for (var m = 0; m < 2; m++) {
-            var prelim = data.prelim['run' + g + l + m][key];
+            var prelim = data.prelim['run' + z + l + m][key];
             // we might not have a prelim run for this oil (certain oils don't
             // run through some refineries)
             if (!prelim) break;
