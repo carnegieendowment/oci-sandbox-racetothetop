@@ -46,7 +46,7 @@ var utils = {
     for (var key in oils) {
       var opgeeExtent = null;
       var transport = +oils[key]['Transport Emissions'];  // Transport total
-      for (var g = 0; g < data.metadata.gwp.split(',').length; g++) {
+      for (var g = 0; g < 2; g++) {
         for (var i = 0; i < data.metadata.solarSteam.split(',').length; i++) {
           for (var j = 0; j < data.metadata.water.split(',').length; j++) {
             for (var k = 0; k < data.metadata.flare.split(',').length; k++) {
@@ -60,7 +60,7 @@ var utils = {
           }
         }
       }
-      for (var g = 0; i < data.metadata.gwp.split(',').length; g++) {
+      for (var z = 0; z < 2; z++) {
         for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
           // this for loop is for LPG runs
           for (var m = 0; m < 2; m++) {
