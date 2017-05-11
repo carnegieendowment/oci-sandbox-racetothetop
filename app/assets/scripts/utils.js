@@ -51,7 +51,7 @@ var utils = {
     for (var key in oils) {
       var opgeeExtent = null;
       var transport = +oils[key]['Transport Emissions'];  // Transport total
-      for (var g = 0; g < data.metadata.gwp.split(',').length; g++) {
+      for (var g = 0; g < 2; g++) {
         for (var i = 0; i < data.metadata.solarSteam.split(',').length; i++) {
           for (var j = 0; j < data.metadata.water.split(',').length; j++) {
             for (var k = 0; k < data.metadata.flare.split(',').length; k++) {
@@ -73,8 +73,8 @@ var utils = {
           }
         }
       }
-      for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
-        for (var z = 0; z < data.metadata.gwp.split(',').length; z++) {
+      for (var z = 0; z < 2; z++) {
+        for (var l = 0; l < data.metadata.refinery.split(',').length; l++) {
           // this for loop is for LPG runs
           for (var m = 0; m < 2; m++) {
             // if we don't have the necessary data, load it
@@ -615,7 +615,7 @@ var utils = {
   // Get the current OPGEE model based on model parameters
   getOPGEEModel: function (gwp, solarSteam, water, flaring) {
     var metadata = Oci.data.metadata;
-    var gi = this.indexInArray(this.trimMetadataArray(metadata.gwp.split(',')), gwp);
+    var gi = Number(gwp);
     var si = this.indexInArray(this.trimMetadataArray(metadata.solarSteam.split(',')), solarSteam);
     var wi = this.indexInArray(this.trimMetadataArray(metadata.water.split(',')), water);
     var fi = this.indexInArray(this.trimMetadataArray(metadata.flare.split(',')), flaring);
@@ -623,8 +623,8 @@ var utils = {
     // Generate model string
     var model = 'run';
     // If we don't have a match, return default
-    if (gi === -1 || si === -1 || wi === -1 || fi === -1) {
-      model += '0000';
+    if (si === -1 || wi === -1 || fi === -1) {
+      model += (gi + '000');
     } else {
       model += [gi, si, wi, fi].join('');
     }
@@ -634,14 +634,14 @@ var utils = {
   // Get the current PRELIM model
   getPRELIMModel: function (gwp, refinery, lpg) {
     var metadata = Oci.data.metadata;
-    var zi = this.indexInArray(this.trimMetadataArray(metadata.gwp.split(',')), gwp);
+    var zi = Number(gwp);
     var ri = this.trimMetadataArray(metadata.refinery.split(',')).indexOf(refinery);
     var li = Number(lpg);
     // Generate model string
     var model = 'run';
     // If we don't have a match, return default
     if (ri === -1) {
-      model += ('1' + '0' + li);
+      model += (zi + '0' + li);
     } else {
       model = model + zi + ri + li;
     }
