@@ -286,12 +286,18 @@ input[type=radio] {
   }
   input:checked ~ .switch-ui:after { content: "Sell"; }
 }
+.switch input:checked ~ .switch-ui:after {
+  @extend .antialiased;
+  text-align: left;
+  color: #fff;
+  content: "On";
+}
 .switch.gwp-override {
   .switch-ui:after {
-    content: "100";
+    content: "20";
     padding-right: 10px;
   }
-  input:checked ~ .switch-ui:after { content: "20"; }
+  input:checked ~ .switch-ui:after { content: "100"; }
 }
 .switch input:checked ~ .switch-ui {
   background: tint($base-color, 20%);
@@ -303,9 +309,8 @@ input[type=radio] {
   @extend .antialiased;
   text-align: left;
   color: #fff;
-  content: "On";
+  content: "20";
 }
-
 
 // SLIDERS noUiSlider.js
 
