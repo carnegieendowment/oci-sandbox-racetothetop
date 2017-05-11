@@ -17,6 +17,7 @@ var si = utils.trimMetadataArray(metadata.solarSteam.split(','));
 var wi = utils.trimMetadataArray(metadata.water.split(','));
 var fi = utils.trimMetadataArray(metadata.flare.split(','));
 var gi = utils.trimMetadataArray(metadata.gwp.split(','));
+var zi = utils.trimMetadataArray(metadata.gwp.split(','));
 var ri = utils.trimMetadataArray(metadata.refinery.split(','));
 var li = [1, 0];
 
@@ -31,11 +32,11 @@ gi.forEach(function (_, g) {
   });
 });
 
-gi.forEach(function (_, g) {
+zi.forEach(function (_, z) {
   ri.forEach(function (_, r) {
     li.forEach(function (_, l) {
-      var temp = JSON.parse(fs.readFileSync('app/assets/data/prelim/prelim_run' + g+ r + l + '.json'));
-      Oci.data.prelim['run' + g + r + l] = temp;
+      var temp = JSON.parse(fs.readFileSync('app/assets/data/prelim/prelim_run' + z + r + l + '.json'));
+      Oci.data.prelim['run' + z + r + l] = temp;
     });
   });
 });
