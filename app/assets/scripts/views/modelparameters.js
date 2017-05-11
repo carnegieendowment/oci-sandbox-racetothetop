@@ -61,10 +61,10 @@ var ModelParameters = Backbone.View.extend({
     if (params.opgee) {
       try {
         // We know the format of the param 'run###'
-        var solarSteam = params.opgee[3];
-        var water = params.opgee[4];
-        var flaring = params.opgee[5];
-        var gwp = params.opgee[6];
+        var solarSteam = params.opgee[4];
+        var water = params.opgee[5];
+        var flaring = params.opgee[6];
+        var gwp = params.opgee[3];
         var solarSteamValue = parseFloat(Oci.data.metadata.solarSteam.split(',')[solarSteam]) * 100;
         this.solarSteamSlider.set(solarSteamValue);
         var waterValue = parseFloat(Oci.data.metadata.water.split(',')[water]) * 100;
@@ -82,7 +82,6 @@ var ModelParameters = Backbone.View.extend({
         // We know the format of the param 'run##'
         var refinery = params.prelim[3];
         var lpg = params.prelim[4];
-        var gwp = params.gwp[5];
         $('#dropdown-refinery').prop('selectedIndex', refinery);
         $('#toggle-lpg').attr('checked', Boolean(lpg));
         $('#toggle-gwp').attr('checked', Boolean(gwp));
