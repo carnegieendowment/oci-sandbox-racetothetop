@@ -16,16 +16,16 @@ test('All JSON files should parse correctly', function (t) {
 test('All possible runs should be readable', function (t) {
   // Load all data based on metadata
   var metadata = JSON.parse(fs.readFileSync('../app/assets/data/metadata.json'));
-  var si = metadata.solarSteam.split(',');
+  var vi = metadata.venting.split(',');
   var wi = metadata.water.split(',');
   var fi = metadata.flare.split(',');
   var ri = metadata.refinery.split(',');
   var li = [1, 0];
 
-  si.forEach(function (_, s) {
+  vi.forEach(function (_, v) {
     wi.forEach(function (_, w) {
       fi.forEach(function (_, f) {
-        t.notThrows(function () { JSON.parse(fs.readFileSync('../app/assets/data/opgee/opgee_run' + s + w + f + '.json')); });
+        t.notThrows(function () { JSON.parse(fs.readFileSync('../app/assets/data/opgee/opgee_run' + v + w + f + '.json')); });
       });
     });
   });
