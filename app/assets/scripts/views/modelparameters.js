@@ -10,8 +10,8 @@ var noUiSlider = require('nouislider');
 var template = require('../templates/modelparameters.ejs');
 
 var self;
-var solarSteamValues;
-var solarSteamLabels;
+var ventingValues;
+var ventingLabels;
 var flaringValues;
 var flaringLabels;
 var waterValues;
@@ -46,7 +46,7 @@ var ModelParameters = Backbone.View.extend({
 
   getModelValues: function () {
     return {
-      solarSteam: (this.solarSteamSlider.get() / 100),
+      solarSteam: (this.ventingSlider.get() / 100),
       water: (this.waterSlider.get() / 100),
       flaring: (this.flaringSlider.get() / 100),
       showCoke: (this.cokeSlider.get() / 100),
@@ -61,12 +61,12 @@ var ModelParameters = Backbone.View.extend({
     if (params.opgee) {
       try {
         // We know the format of the param 'run###'
-        var solarSteam = params.opgee[4];
+        var venting = params.opgee[4];
         var water = params.opgee[5];
         var flaring = params.opgee[6];
         var gwp = params.opgee[3];
-        var solarSteamValue = parseFloat(Oci.data.metadata.solarSteam.split(',')[solarSteam]) * 100;
-        this.solarSteamSlider.set(solarSteamValue);
+        var ventingValue = parseFloat(Oci.data.metadata.venting.split(',')[venting]) * 100;
+        this.ventingSlider.set(ventingValue);
         var waterValue = parseFloat(Oci.data.metadata.water.split(',')[water]) * 100;
         this.waterSlider.set(waterValue);
         var flaringValue = parseFloat(Oci.data.metadata.flare.split(',')[flaring]) * 100;
@@ -98,8 +98,8 @@ var ModelParameters = Backbone.View.extend({
   },
 
   updateSummary: function () {
-    var solarSteam = parseInt(this.solarSteamSlider.get());
-    $('.value.solar-steam span').html(solarSteam + '%');
+    var venting = parseInt(this.ventingSlider.get());
+    $('.value.venting span').html(venting + '%');
     var flaring = parseInt(this.flaringSlider.get());
     $('.value.flare span').html(flaring + '%');
     var water = parseInt(this.waterSlider.get());
@@ -134,14 +134,14 @@ var ModelParameters = Backbone.View.extend({
   addSliders: function () {
     var self = this;
 
-    this.solarSteamSlider = noUiSlider.create($('#slider-solar-steam')[0], {
+    this.ventingSlider = noUiSlider.create($('#slider-venting')[0], {
       start: 0,
       connect: 'lower',
       snap: true,
-      range: _.zipObject(solarSteamLabels, solarSteamValues),
+      range: _.zipObject(ventingLabels, ventingValues),
       pips: {
         mode: 'values',
-        values: solarSteamValues,
+        values: ventingValues,
         density: 10,
         format: wNumb({
           postfix: '%'
@@ -149,7 +149,7 @@ var ModelParameters = Backbone.View.extend({
         stepped: true
       }
     });
-    this.solarSteamSlider.on('update', function (value) {
+    this.ventingSlider.on('update', function (value) {
       self.trigger('sliderUpdate', value);
     });
 
@@ -220,12 +220,12 @@ var ModelParameters = Backbone.View.extend({
   setSliders: function () {
     var m = Oci.data.metadata;
 
-    solarSteamValues = this.metadataToArray(m.solarSteam);
+    ventingValues = this.metadataToArray(m.venting);
     flaringValues = this.metadataToArray(m.flare);
     waterValues = this.metadataToArray(m.water);
     cokeValues = [0, 50, 100];
 
-    solarSteamLabels = this.sliderHelper(solarSteamValues);
+    ventingLabels = this.sliderHelper(ventingValues);
     flaringLabels = this.sliderHelper(flaringValues);
     waterLabels = this.sliderHelper(waterValues);
     cokeLabels = this.sliderHelper(cokeValues);
