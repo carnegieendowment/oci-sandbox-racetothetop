@@ -399,7 +399,7 @@ var EmissionsDrivers = BaseView.extend({
     var params = this.modelParametersView.getModelValues();
 
     // if we don't have the necessary data, load it
-    var opgeeRun = utils.getOPGEEModel(params.gwp, params.solarSteam, params.water, params.flaring);
+    var opgeeRun = utils.getOPGEEModel(params.gwp, params.venting, params.water, params.flaring);
     var prelimRun = utils.getPRELIMModel(params.gwp, params.refinery, params.lpg);
     if (!Oci.Collections.opgee.get(opgeeRun)) {
       var opgeeModel = new OpgeeModel({ id: opgeeRun });
