@@ -52,11 +52,11 @@ var utils = {
       var opgeeExtent = null;
       var transport = +oils[key]['Transport Emissions'];  // Transport total
       for (var g = 0; g < 2; g++) {
-        for (var i = 0; i < data.metadata.solarSteam.split(',').length; i++) {
+        for (var v = 0; v < data.metadata.venting.split(',').length; v++) {
           for (var j = 0; j < data.metadata.water.split(',').length; j++) {
             for (var k = 0; k < data.metadata.flare.split(',').length; k++) {
               // if we don't have the necessary data, load it
-              var opgeeRun = 'run' + g + i + j + k;
+              var opgeeRun = 'run' + g + v + j + k;
               if (!Oci.Collections.opgee.get(opgeeRun)) {
                 var opgeeModel = new OpgeeModel({ id: opgeeRun });
                 opgeeModel.fetch({ async: false, success: function (data) {
@@ -613,20 +613,20 @@ var utils = {
   },
 
   // Get the current OPGEE model based on model parameters
-  getOPGEEModel: function (gwp, solarSteam, water, flaring) {
+  getOPGEEModel: function (gwp, venting, water, flaring) {
     var metadata = Oci.data.metadata;
     var gi = Number(gwp);
-    var si = this.indexInArray(this.trimMetadataArray(metadata.solarSteam.split(',')), solarSteam);
+    var vi = this.indexInArray(this.trimMetadataArray(metadata.venting.split(',')), venting);
     var wi = this.indexInArray(this.trimMetadataArray(metadata.water.split(',')), water);
     var fi = this.indexInArray(this.trimMetadataArray(metadata.flare.split(',')), flaring);
 
     // Generate model string
     var model = 'run';
     // If we don't have a match, return default
-    if (si === -1 || wi === -1 || fi === -1) {
+    if (vi === -1 || wi === -1 || fi === -1) {
       model += (gi + '000');
     } else {
-      model += [gi, si, wi, fi].join('');
+      model += [gi, vi, wi, fi].join('');
     }
     return model;
   },
