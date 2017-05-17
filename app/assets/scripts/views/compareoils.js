@@ -277,7 +277,7 @@ var CompareOils = BaseView.extend({
     var width = this.width;
     var height = this.height;
 
-    var xMax = utils.getGlobalExtent(this.sortRatio, 'max');
+//    var xMax = utils.getGlobalExtent(this.sortRatio, 'max');
     this.xScale = d3.scale.linear()
                .domain([0, 2200])
                .range([0, width])
