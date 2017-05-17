@@ -277,11 +277,11 @@ var CompareOils = BaseView.extend({
     var width = this.width;
     var height = this.height;
 
-    var xMax = utils.getGlobalExtent(this.sortRatio, 'max');
+    // var xMax = utils.getGlobalExtent(this.sortRatio, 'max');
     this.xScale = d3.scale.linear()
                .domain([0, 2000])
                .range([0, width])
-               //.ticks([0, 400, 800, 1200, 1600, 2000])
+               // .ticks([0, 400, 800, 1200, 1600, 2000])
                .nice();
     var oilNames = this.chartData[0].map(function (d) {
       return d.y;
