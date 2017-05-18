@@ -293,27 +293,6 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "0.960468503"
   },
-  "Norway Oseberg": {
-    "Unique": "Norway Oseberg",
-    "Exploration": "0",
-    "Drilling": "0.759699475",
-    "Production": "75.28576439",
-    "Processing": "16.07365698",
-    "Upgrading": "0",
-    "Maintenance": "0",
-    "Waste": "0",
-    "Venting, Flaring, and Fugitive Emissions": "84.90790835",
-    "Diluent": "0",
-    "Miscellaneous": "2.791405463",
-    "Transport to Refinery": "3.761117243",
-    "Offsite emissions": "188.1779956",
-    "Net lifecycle emissions": "371.7575475",
-    "API Gravity": "39.6",
-    "Gas-to-Oil-Ratio": "4984.30781",
-    "Water-to-Oil-Ratio": "0.485307041",
-    "Steam-to-Oil-Ratio": "0",
-    "Flaring-to-Oil-Ratio": "2.930663201"
-  },
   "Norway Skarv": {
     "Unique": "Norway Skarv",
     "Exploration": "0",
@@ -568,19 +547,19 @@
   },
   "U.S. California Midway Sunset": {
     "Unique": "U.S. California Midway Sunset",
-    "Exploration": "#REF!",
-    "Drilling": "#REF!",
-    "Production": "#REF!",
-    "Processing": "#REF!",
-    "Upgrading": "#REF!",
-    "Maintenance": "#REF!",
-    "Waste": "#REF!",
-    "Venting, Flaring, and Fugitive Emissions": "#REF!",
-    "Diluent": "#REF!",
-    "Miscellaneous": "#REF!",
-    "Transport to Refinery": "#REF!",
-    "Offsite emissions": "#REF!",
-    "Net lifecycle emissions": "#REF!",
+    "Exploration": "0",
+    "Drilling": "2.201732563",
+    "Production": "3.717630059",
+    "Processing": "0.428266333",
+    "Upgrading": "0",
+    "Maintenance": "0",
+    "Waste": "0",
+    "Venting, Flaring, and Fugitive Emissions": "51.26087292",
+    "Diluent": "0",
+    "Miscellaneous": "3.018520132",
+    "Transport to Refinery": "0.338713093",
+    "Offsite emissions": "-20.27340849",
+    "Net lifecycle emissions": "40.69232662",
     "API Gravity": "22.6",
     "Gas-to-Oil-Ratio": "168",
     "Water-to-Oil-Ratio": "4.007433436",
@@ -629,8 +608,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "1"
   },
-  "South Coles Levee": {
-    "Unique": "South Coles Levee",
+  "U.S. California South Coles Levee": {
+    "Unique": "U.S. California South Coles Levee",
     "Exploration": "0",
     "Drilling": "1.31347433",
     "Production": "1.618379919",
@@ -650,8 +629,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "1.3"
   },
-  "Torrance": {
-    "Unique": "Torrance",
+  "U.S. California Torrance": {
+    "Unique": "U.S. California Torrance",
     "Exploration": "0",
     "Drilling": "0.906867023",
     "Production": "8.953114879",
@@ -671,8 +650,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "1.3"
   },
-  "Santa Clara Avenue": {
-    "Unique": "Santa Clara Avenue",
+  "U.S. California Santa Clara Avenue": {
+    "Unique": "U.S. California Santa Clara Avenue",
     "Exploration": "0",
     "Drilling": "1.472661837",
     "Production": "4.295679955",
@@ -692,8 +671,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "1.3"
   },
-  "Brent": {
-    "Unique": "Brent",
+  "UK Brent": {
+    "Unique": "UK Brent",
     "Exploration": "0",
     "Drilling": "0.760954749",
     "Production": "25.009507",
@@ -713,8 +692,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "196.3470581"
   },
-  "Kingfish": {
-    "Unique": "Kingfish",
+  "Australia Kingfish": {
+    "Unique": "Australia Kingfish",
     "Exploration": "0",
     "Drilling": "0.630406006",
     "Production": "0.678117008",
@@ -734,8 +713,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "18.2"
   },
-  "Ninian": {
-    "Unique": "Ninian",
+  "UK Ninian": {
+    "Unique": "UK Ninian",
     "Exploration": "0",
     "Drilling": "7.972446729",
     "Production": "56.22086953",
@@ -755,8 +734,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "18.2"
   },
-  "Valhall": {
-    "Unique": "Valhall",
+  "Norway Valhall": {
+    "Unique": "Norway Valhall",
     "Exploration": "0",
     "Drilling": "7.681041352",
     "Production": "1.284873816",
@@ -776,8 +755,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "1.25605394"
   },
-  "Terra Nova": {
-    "Unique": "Terra Nova",
+  "Canada Terra Nova": {
+    "Unique": "Canada Terra Nova",
     "Exploration": "0",
     "Drilling": "1.39825897",
     "Production": "13.56480267",
@@ -797,8 +776,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "15.68818999"
   },
-  "Statfjord": {
-    "Unique": "Statfjord",
+  "Norway Statfjord": {
+    "Unique": "Norway Statfjord",
     "Exploration": "0",
     "Drilling": "7.808600721",
     "Production": "1.486408175",
@@ -818,8 +797,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "14.46856358"
   },
-  "Snorre": {
-    "Unique": "Snorre",
+  "Norway Snorre": {
+    "Unique": "Norway Snorre",
     "Exploration": "0",
     "Drilling": "1.043169582",
     "Production": "8.087581441",
@@ -839,8 +818,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "1.594739718"
   },
-  "Piper": {
-    "Unique": "Piper",
+  "UK Piper": {
+    "Unique": "UK Piper",
     "Exploration": "0",
     "Drilling": "7.714136066",
     "Production": "28.08630357",
@@ -860,8 +839,8 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "18.2"
   },
-  "Gullfaks": {
-    "Unique": "Gullfaks",
+  "Norway Gullfaks": {
+    "Unique": "Norway Gullfaks",
     "Exploration": "0",
     "Drilling": "0.492250649",
     "Production": "59.13231447",
@@ -925,19 +904,19 @@
   },
   "Canada Athabasca DC SCO": {
     "Unique": "Canada Athabasca DC SCO",
-    "Exploration": "#REF!",
-    "Drilling": "#REF!",
-    "Production": "#REF!",
-    "Processing": "#REF!",
-    "Upgrading": "#REF!",
-    "Maintenance": "#REF!",
-    "Waste": "#REF!",
-    "Venting, Flaring, and Fugitive Emissions": "#REF!",
-    "Diluent": "#REF!",
-    "Miscellaneous": "#REF!",
-    "Transport to Refinery": "#REF!",
-    "Offsite emissions": "#REF!",
-    "Net lifecycle emissions": "#REF!",
+    "Exploration": "0",
+    "Drilling": "18.47477902",
+    "Production": "37.02684344",
+    "Processing": "0",
+    "Upgrading": "63.807944",
+    "Maintenance": "0",
+    "Waste": "0",
+    "Venting, Flaring, and Fugitive Emissions": "29.15083304",
+    "Diluent": "0",
+    "Miscellaneous": "3.218602616",
+    "Transport to Refinery": "7.344085432",
+    "Offsite emissions": "3.706673402",
+    "Net lifecycle emissions": "162.7297609",
     "API Gravity": "",
     "Gas-to-Oil-Ratio": "0",
     "Water-to-Oil-Ratio": "2.5",
