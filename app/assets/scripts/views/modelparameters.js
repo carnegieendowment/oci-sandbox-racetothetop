@@ -70,7 +70,7 @@ var ModelParameters = Backbone.View.extend({
         var gwp = params.opgee[3];
         var fugitives = params.opgee[4];
         var fugitivesValue = parseFloat(Oci.data.metadata.fugitives.split(',')[fugitives]) * 100;
-        this.fugitivesSlider.set(fugitivesValue);         
+        this.fugitivesSlider.set(fugitivesValue);
         var ventingValue = parseFloat(Oci.data.metadata.venting.split(',')[venting]) * 100;
         this.ventingSlider.set(ventingValue);
         var waterValue = parseFloat(Oci.data.metadata.water.split(',')[water]) * 100;
@@ -139,7 +139,7 @@ var ModelParameters = Backbone.View.extend({
 
   addSliders: function () {
     var self = this;
-    
+
     this.fugitivesSlider = noUiSlider.create($('#slider-fugitives')[0], {
       start: 0,
       connect: 'lower',
