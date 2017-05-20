@@ -52,22 +52,24 @@ var utils = {
       var opgeeExtent = null;
       var transport = +oils[key]['Transport Emissions'];  // Transport total
       for (var g = 0; g < 2; g++) {
-        for (var v = 0; v < data.metadata.venting.split(',').length; v++) {
-          for (var j = 0; j < data.metadata.water.split(',').length; j++) {
-            for (var k = 0; k < data.metadata.flare.split(',').length; k++) {
-              // if we don't have the necessary data, load it
-              var opgeeRun = 'run' + g + v + j + k;
-              if (!Oci.Collections.opgee.get(opgeeRun)) {
-                var opgeeModel = new OpgeeModel({ id: opgeeRun });
-                opgeeModel.fetch({ async: false, success: function (data) {
-                  Oci.Collections.opgee.add(data);
-                }});
-              }
-              var opgee = Oci.Collections.opgee.get(opgeeRun).toJSON()[key];
-              var extraction = +opgee['Net lifecycle emissions'];
+        for (var p = 0; p < data.metadata.fugitives.split(',').length; p++) {
+          for (var v = 0; v < data.metadata.venting.split(',').length; v++) {
+            for (var j = 0; j < data.metadata.water.split(',').length; j++) {
+              for (var k = 0; k < data.metadata.flare.split(',').length; k++) {
+                // if we don't have the necessary data, load it
+                var opgeeRun = 'run' + g + p + v + j + k;
+                if (!Oci.Collections.opgee.get(opgeeRun)) {
+                  var opgeeModel = new OpgeeModel({ id: opgeeRun });
+                  opgeeModel.fetch({ async: false, success: function (data) {
+                    Oci.Collections.opgee.add(data);
+                  }});
+                }
+                var opgee = Oci.Collections.opgee.get(opgeeRun).toJSON()[key];
+                var extraction = +opgee['Net lifecycle emissions'];
 
-              if (!opgeeExtent || (extraction * minMaxMultiplier > opgeeExtent * minMaxMultiplier)) {
-                opgeeExtent = extraction;
+                if (!opgeeExtent || (extraction * minMaxMultiplier > opgeeExtent * minMaxMultiplier)) {
+                  opgeeExtent = extraction;
+                }
               }
             }
           }
@@ -613,9 +615,10 @@ var utils = {
   },
 
   // Get the current OPGEE model based on model parameters
-  getOPGEEModel: function (gwp, venting, water, flaring) {
+  getOPGEEModel: function (gwp, fugitives, venting, water, flaring) {
     var metadata = Oci.data.metadata;
     var gi = Number(gwp);
+    var pi = this.indexInArray(this.trimMetadataArray(metadata.fugitives.split(',')), fugitives);
     var vi = this.indexInArray(this.trimMetadataArray(metadata.venting.split(',')), venting);
     var wi = this.indexInArray(this.trimMetadataArray(metadata.water.split(',')), water);
     var fi = this.indexInArray(this.trimMetadataArray(metadata.flare.split(',')), flaring);
@@ -623,10 +626,10 @@ var utils = {
     // Generate model string
     var model = 'run';
     // If we don't have a match, return default
-    if (vi === -1 || wi === -1 || fi === -1) {
-      model += (gi + '000');
+    if (pi === -1 || vi === -1 || wi === -1 || fi === -1) {
+      model += (gi + '0000');
     } else {
-      model += [gi, vi, wi, fi].join('');
+      model += [gi, pi, vi, wi, fi].join('');
     }
     return model;
   },
