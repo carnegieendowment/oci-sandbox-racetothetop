@@ -29,7 +29,7 @@ var scroll = window.scrollY;
 window.Oci = {
   Models: {},
   Collections: {
-    opgee: new OpgeeCollection([{ id: 'run1000' }]),
+    opgee: new OpgeeCollection([{ id: 'run10000' }]),
     prelim: new PrelimCollection({ id: 'run101' })
   },
   Views: {},
