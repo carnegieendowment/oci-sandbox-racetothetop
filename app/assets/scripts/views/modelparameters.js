@@ -66,9 +66,9 @@ var ModelParameters = Backbone.View.extend({
         // We know the format of the param 'run###'
         var venting = params.opgee[5];
         var water = params.opgee[6];
-        var flaring = params.opgee[7];
-        var gwp = params.opgee[3];
-        var fugitives = params.opgee[4];
+        var flaring = params.opgee[4];
+        var gwp = params.opgee[2];
+        var fugitives = params.opgee[3];
         var fugitivesValue = parseFloat(Oci.data.metadata.fugitives.split(',')[fugitives]) * 100;
         this.fugitivesSlider.set(fugitivesValue);
         var ventingValue = parseFloat(Oci.data.metadata.venting.split(',')[venting]) * 100;
@@ -104,6 +104,8 @@ var ModelParameters = Backbone.View.extend({
   },
 
   updateSummary: function () {
+    var fugitives = parseInt(this.fugitivesSlider.get());
+    $('.value.fugitives span').html(fugitives + '%');
     var venting = parseInt(this.ventingSlider.get());
     $('.value.venting span').html(venting + '%');
     var flaring = parseInt(this.flaringSlider.get());
@@ -252,6 +254,7 @@ var ModelParameters = Backbone.View.extend({
     cokeValues = [0, 50, 100];
 
     ventingLabels = this.sliderHelper(ventingValues);
+    fugitivesLabels = this.SliderHelper(fugitivesValues);
     flaringLabels = this.sliderHelper(flaringValues);
     waterLabels = this.sliderHelper(waterValues);
     cokeLabels = this.sliderHelper(cokeValues);
