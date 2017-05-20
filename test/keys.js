@@ -17,15 +17,21 @@ test('All possible runs should be readable', function (t) {
   // Load all data based on metadata
   var metadata = JSON.parse(fs.readFileSync('../app/assets/data/metadata.json'));
   var vi = metadata.venting.split(',');
+  var gi = metadata.gwp.split(',');
   var wi = metadata.water.split(',');
   var fi = metadata.flare.split(',');
+  var pi = metadata.fugitives.split(',');
   var ri = metadata.refinery.split(',');
   var li = [1, 0];
 
-  vi.forEach(function (_, v) {
-    wi.forEach(function (_, w) {
-      fi.forEach(function (_, f) {
-        t.notThrows(function () { JSON.parse(fs.readFileSync('../app/assets/data/opgee/opgee_run' + v + w + f + '.json')); });
+  gi.forEach(function (_, g) {
+    vi.forEach(function (_, v) {
+      pi.forEach(function (_,p) {
+        wi.forEach(function (_, w) {
+          fi.forEach(function (_, f) {
+            t.notThrows(function () { JSON.parse(fs.readFileSync('../app/assets/data/opgee/opgee_run' + g + p + v + w + f + '.json')); });
+          });
+        });
       });
     });
   });
