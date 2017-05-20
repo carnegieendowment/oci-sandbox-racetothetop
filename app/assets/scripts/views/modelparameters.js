@@ -18,6 +18,8 @@ var waterValues;
 var waterLabels;
 var cokeValues;
 var cokeLabels;
+var fugitivesValues;
+var fugitivesLabels;
 
 var ModelParameters = Backbone.View.extend({
 
@@ -47,6 +49,7 @@ var ModelParameters = Backbone.View.extend({
   getModelValues: function () {
     return {
       venting: (this.ventingSlider.get() / 100),
+      fugitives: (this.fugitivesSlider.get() / 100),
       water: (this.waterSlider.get() / 100),
       flaring: (this.flaringSlider.get() / 100),
       showCoke: (this.cokeSlider.get() / 100),
@@ -61,10 +64,13 @@ var ModelParameters = Backbone.View.extend({
     if (params.opgee) {
       try {
         // We know the format of the param 'run###'
-        var venting = params.opgee[4];
-        var water = params.opgee[5];
-        var flaring = params.opgee[6];
+        var venting = params.opgee[5];
+        var water = params.opgee[6];
+        var flaring = params.opgee[7];
         var gwp = params.opgee[3];
+        var fugitives = params.opgee[4];
+        var fugitivesValue = parseFloat(Oci.data.metadata.fugitives.split(',')[fugitives]) * 100;
+        this.fugitivesSlider.set(fugitivesValue);         
         var ventingValue = parseFloat(Oci.data.metadata.venting.split(',')[venting]) * 100;
         this.ventingSlider.set(ventingValue);
         var waterValue = parseFloat(Oci.data.metadata.water.split(',')[water]) * 100;
@@ -133,6 +139,25 @@ var ModelParameters = Backbone.View.extend({
 
   addSliders: function () {
     var self = this;
+    
+    this.fugitivesSlider = noUiSlider.create($('#slider-fugitives')[0], {
+      start: 0,
+      connect: 'lower',
+      snap: true,
+      range: _.zipObject(fugitivesLabels, fugitivesValues),
+      pips: {
+        mode: 'values',
+        values: fugitivesValues,
+        density: 10,
+        format: wNumb({
+          postfix: '%'
+        }),
+        stepped: true
+      }
+    });
+    this.fugitivesSlider.on('update', function (value) {
+      self.trigger('sliderUpdate', value);
+    });
 
     this.ventingSlider = noUiSlider.create($('#slider-venting')[0], {
       start: 0,
@@ -221,6 +246,7 @@ var ModelParameters = Backbone.View.extend({
     var m = Oci.data.metadata;
 
     ventingValues = this.metadataToArray(m.venting);
+    fugitivesValues = this.metadataToArray(m.fugitives);
     flaringValues = this.metadataToArray(m.flare);
     waterValues = this.metadataToArray(m.water);
     cokeValues = [0, 50, 100];
