@@ -16,22 +16,24 @@ var metadata = Oci.data.metadata
 var vi = utils.trimMetadataArray(metadata.venting.split(','));
 var wi = utils.trimMetadataArray(metadata.water.split(','));
 var fi = utils.trimMetadataArray(metadata.flare.split(','));
+var li = utils.trimMetadataArray(metadata.fugitives.split(','));
 var gi = [1,0];
 var zi = [1,0];
 var ri = utils.trimMetadataArray(metadata.refinery.split(','));
 var li = [1, 0];
 
 gi.forEach(function (_, g) {
-  vi.forEach(function (_, v) {
+  li.forEach(function (_, l) {
+    vi.forEach(function (_, v) {
       wi.forEach(function (_, w) {
-      fi.forEach(function (_, f) {
-        var temp = JSON.parse(fs.readFileSync('app/assets/data/opgee/opgee_run' + g + v + w + f + '.json'));
-        Oci.data.opgee['run' + g + v + w + f] = temp;
+        fi.forEach(function (_, f) {
+          var temp = JSON.parse(fs.readFileSync('app/assets/data/opgee/opgee_run' + g + l + v + w + f + '.json'));
+          Oci.data.opgee['run' + g + l+ v + w + f] = temp;
+        });
       });
     });
   });
 });
-
 zi.forEach(function (_, z) {
   ri.forEach(function (_, r) {
     li.forEach(function (_, l) {
