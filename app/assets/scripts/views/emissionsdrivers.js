@@ -167,7 +167,7 @@ var EmissionsDrivers = BaseView.extend({
     this.yAxis = d3.svg.axis()
               .scale(this.yScale)
               .orient('left')
-              .ticks(5);
+              .ticks(4);
 
     // Create X axis
     this.svg.append('g')
