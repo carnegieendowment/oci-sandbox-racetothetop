@@ -69,7 +69,7 @@ var ModelParameters = Backbone.View.extend({
         var flaring = params.opgee[6];
         var gwp = params.opgee[3];
         var fugitives = params.opgee[4];
-        var fugitivesValue = parseFloat(Oci.data.metadata.fugitives.split(',')[fugitives]);
+        var fugitivesValue = parseFloat(Oci.data.metadata.fugitives.split(',')[fugitives]) * 100;
         this.fugitivesSlider.set(fugitivesValue);
         var ventingValue = parseFloat(Oci.data.metadata.venting.split(',')[venting]) * 100;
         this.ventingSlider.set(ventingValue);
