@@ -279,7 +279,7 @@ var CompareOils = BaseView.extend({
 
     // var xMax = utils.getGlobalExtent(this.sortRatio, 'max');
     this.xScale = d3.scale.linear()
-               .domain([0, 2000])
+               .domain([0, 1800])
                .range([0, width])
                // .ticks([0, 400, 800, 1200, 1600, 2000])
                .nice();
