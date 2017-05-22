@@ -254,7 +254,7 @@ var ModelParameters = Backbone.View.extend({
     cokeValues = [0, 50, 100];
 
     ventingLabels = this.sliderHelper(ventingValues);
-    fugitivesLabels = this.SliderHelper(fugitivesValues);
+    fugitivesLabels = this.sliderHelper(fugitivesValues);
     flaringLabels = this.sliderHelper(flaringValues);
     waterLabels = this.sliderHelper(waterValues);
     cokeLabels = this.sliderHelper(cokeValues);
