@@ -256,9 +256,9 @@ var utils = {
 
   categoryColorForType: function (oilType) {
     var range = ['#231F20', '#645A4F', '#006838', '#009444', '#8DC63F',
-                 '#003A63', '#EDCF0E', '#006AA7', '#CCC7C2', '#0095DA'];
+                 '#003A63', '#EDCF0E', '#006AA7', '#CCC7C2', '#0095DA', '#ffa811'];
     var colors = d3.scale.ordinal()
-                   .domain(d3.range(9))
+                   .domain(d3.range(10))
                    .range(range);
     switch (oilType) {
       case 'Extra-Heavy':
@@ -281,6 +281,8 @@ var utils = {
         return colors(8);
       case 'High Gas':
         return colors(9);
+      case 'Wet Gas':
+        return colors(10);
       default:
         console.warn('Invalid oil type for color', oilType);
         return '#ccc';
