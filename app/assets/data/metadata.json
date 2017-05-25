@@ -1,5 +1,6 @@
 {
   "venting": "0, 0.15, 0.20, 0.25",
+  "fugitives": "0, 1, 2, 3",
   "water": "1,0.5,0.75,1.25,1.5",
   "flare": "1,0.1,0.85, 1.25, 1.5, 2",
   "refinery": "0 = Default, 1 = Hydroskimming, 2 = Medium Conversion, 3 = Deep Conversion (Coking), 4 = Deep Conversion (Hydrotreating)",
