@@ -280,9 +280,9 @@ var utils = {
       case 'Condensate':
         return colors(8);
       case 'High Gas':
-        return colors(10);
-      case 'Wet Gas':
         return colors(9);
+      case 'Wet Gas':
+        return colors(10);
       default:
         console.warn('Invalid oil type for color', oilType);
         return '#ccc';
