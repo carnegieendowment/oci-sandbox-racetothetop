@@ -138,7 +138,7 @@ var EmissionsDrivers = BaseView.extend({
 
     var yMin = utils.getGlobalExtent(this.sortRatio, 'min', this.yProperty);
     var yMax = utils.getGlobalExtent(this.sortRatio, 'max', this.yProperty);
-    var yExtent = this.addExtentBuffer([yMin, yMax]);
+    var yExtent = this.addExtentBuffer([yMin, yMax-800]);
 
     this.yScale = d3.scale.linear()
                .domain(yExtent)
