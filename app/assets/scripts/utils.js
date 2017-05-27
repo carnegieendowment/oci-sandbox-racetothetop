@@ -629,7 +629,7 @@ var utils = {
     var model = 'run';
     // If we don't have a match, return default
     if (pi === -1 || vi === -1 || wi === -1 || fi === -1) {
-      model += (gi + '0000');
+      model += (gi + '1000');
     } else {
       model += [gi, pi, vi, wi, fi].join('');
     }
