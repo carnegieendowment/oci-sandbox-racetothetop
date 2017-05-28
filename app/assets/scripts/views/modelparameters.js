@@ -54,7 +54,7 @@ var ModelParameters = Backbone.View.extend({
       flaring: (this.flaringSlider.get() / 100),
       showCoke: (this.cokeSlider.get() / 100),
       refinery: $('#dropdown-refinery').val(),
-      lpg: $('#toggle-lpg').is(':unchecked'),
+      lpg: $('#toggle-lpg').is(':checked'),
       gwp: $('#toggle-gwp').is(':checked')
     };
   },
@@ -143,7 +143,7 @@ var ModelParameters = Backbone.View.extend({
     var self = this;
 
     this.fugitivesSlider = noUiSlider.create($('#slider-fugitives')[0], {
-      start: 0,
+      start: 100,
       connect: 'lower',
       snap: true,
       range: _.zipObject(fugitivesLabels, fugitivesValues),
