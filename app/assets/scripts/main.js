@@ -29,8 +29,8 @@ var scroll = window.scrollY;
 window.Oci = {
   Models: {},
   Collections: {
-    opgee: new OpgeeCollection([{ id: 'run10000' }]),
-    prelim: new PrelimCollection({ id: 'run101' })
+    opgee: new OpgeeCollection([{ id: 'run00000' }]),
+    prelim: new PrelimCollection({ id: 'run001' })
   },
   Views: {},
   Routers: {},
