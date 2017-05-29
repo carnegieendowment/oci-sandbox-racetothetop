@@ -55,7 +55,7 @@ var ModelParameters = Backbone.View.extend({
       showCoke: (this.cokeSlider.get() / 100),
       refinery: $('#dropdown-refinery').val(),
       lpg: $('#toggle-lpg').is(':checked'),
-      gwp: $('#toggle-gwp').is(':checked')
+      gwp: $('#toggle-gwp').is(':unchecked')
     };
   },
 
@@ -77,7 +77,7 @@ var ModelParameters = Backbone.View.extend({
         this.waterSlider.set(waterValue);
         var flaringValue = parseFloat(Oci.data.metadata.flare.split(',')[flaring]) * 100;
         this.flaringSlider.set(flaringValue);
-        $('#toggle-gwp').attr('checked', Boolean(gwp));
+        $('#toggle-gwp').attr('unchecked', Boolean(gwp));
       } catch (e) {
         console.warn('bad input parameter', e);
       }
@@ -90,7 +90,7 @@ var ModelParameters = Backbone.View.extend({
         var lpg = params.prelim[4];
         $('#dropdown-refinery').prop('selectedIndex', refinery);
         $('#toggle-lpg').attr('checked', Boolean(lpg));
-        $('#toggle-gwp').attr('checked', Boolean(gwp));
+        $('#toggle-gwp').attr('unchecked', Boolean(gwp));
       } catch (e) {
         console.warn('bad input parameter', e);
       }
@@ -116,7 +116,7 @@ var ModelParameters = Backbone.View.extend({
     $('.value.petcoke span').html(petcoke + '%');
     var lpg = $('#toggle-lpg').is(':checked') ? 'Sell' : 'Use';
     $('.value.lpg span').html(lpg);
-    var gwp = $('#toggle-gwp').is(':checked') ? '100' : '20';
+    var gwp = $('#toggle-gwp').is(':unchecked') ? '100' : '20';
     $('.value.gwp span').html(gwp);
     var refinery = $('#dropdown-refinery').val();
     switch (refinery) {
