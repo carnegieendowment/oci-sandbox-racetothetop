@@ -294,10 +294,10 @@ input[type=radio] {
 }
 .switch.gwp-override {
   .switch-ui:after {
-    content: "20";
+    content: "100";
     padding-right: 10px;
   }
-  input:checked ~ .switch-ui:after { content: "100"; }
+  input:checked ~ .switch-ui:after { content: "20"; }
 }
 .switch input:checked ~ .switch-ui {
   background: tint($base-color, 20%);
@@ -309,7 +309,7 @@ input[type=radio] {
   @extend .antialiased;
   text-align: left;
   color: #fff;
-  content: "20";
+  content: "100";
 }
 
 // SLIDERS noUiSlider.js
