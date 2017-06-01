@@ -545,27 +545,6 @@
     "Steam-to-Oil-Ratio": "0",
     "Flaring-to-Oil-Ratio": "289.3712716"
   },
-  "Norway Gullfaks": {
-    "Unique": "Norway Gullfaks",
-    "Exploration": "0",
-    "Drilling": "0.492250649",
-    "Production": "66.26133419",
-    "Processing": "10.04403044",
-    "Upgrading": "0",
-    "Maintenance": "0",
-    "Waste": "0",
-    "Venting, Flaring, and Fugitive Emissions": "137.6978722",
-    "Diluent": "0",
-    "Miscellaneous": "2.817551347",
-    "Transport to Refinery": "3.890332019",
-    "Offsite emissions": "113.9013981",
-    "Net lifecycle emissions": "335.104769",
-    "API Gravity": "37.5",
-    "Gas-to-Oil-Ratio": "2949.498362",
-    "Water-to-Oil-Ratio": "5.666461767",
-    "Steam-to-Oil-Ratio": "0",
-    "Flaring-to-Oil-Ratio": "197.8549476"
-  },
   "Canada Athabasca DC SCO": {
     "Unique": "Canada Athabasca DC SCO",
     "Exploration": "0",
