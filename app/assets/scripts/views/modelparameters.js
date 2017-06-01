@@ -181,7 +181,7 @@ var ModelParameters = Backbone.View.extend({
     });
 
     this.flaringSlider = noUiSlider.create($('#slider-flaring')[0], {
-      start: 100,
+      start: 0,
       connect: 'lower',
       snap: true,
       range: _.zipObject(flaringLabels, flaringValues),
