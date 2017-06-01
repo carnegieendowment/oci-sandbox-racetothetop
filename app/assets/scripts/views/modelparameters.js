@@ -143,7 +143,7 @@ var ModelParameters = Backbone.View.extend({
     var self = this;
 
     this.fugitivesSlider = noUiSlider.create($('#slider-fugitives')[0], {
-      start: 100,
+      start: 0,
       connect: 'lower',
       snap: true,
       range: _.zipObject(fugitivesLabels, fugitivesValues),
